@@ -10,14 +10,12 @@ export const Home = () => {
         <p className="muted">{t.greeting}</p>
         <h1>{t.name}</h1>
         <h2>&gt; {t.role}</h2>
-        <p className="languages">{t.languages}</p>
-
         <pre className="code">
-{t.hintComplete}
-{"\n"}
-{t.hintGithub}
-{"\n"}
-const githubLink = "https://github.com/Aprkellas";
+          {t.hintComplete}
+          {"\n"}
+          {t.hintGithub}
+          {"\n"}
+          const githubLink = "https://github.com/Aprkellas";
         </pre>
       </div>
 
