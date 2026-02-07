@@ -24,8 +24,14 @@ export const TopBar = () => {
       </div>
 
       <div className="topbar-right">
-        <button className="langSwitch" onClick={toggle}>
-          {lang.toUpperCase()}
+        <button
+          className={`lang-toggle ${lang === "es" ? "active" : ""}`}
+          onClick={toggle}
+          aria-label="Toggle language"
+        >
+          <span className="lang-label">EN</span>
+          <span className="lang-thumb" />
+          <span className="lang-label">ES</span>
         </button>
       </div>
     </div>
