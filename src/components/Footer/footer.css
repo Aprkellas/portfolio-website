@@ -1,0 +1,58 @@
+.footer {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  background: transparent; /* 👈 key */
+  border-top: 1px solid #314158;
+
+  font-family: monospace;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* LEFT SIDE */
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-label {
+  margin-right: 12px;
+}
+
+/* ICONS */
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 100%;
+
+  border-left: 1px solid #314158;
+
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.footer-icon:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* RIGHT SIDE */
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-username {
+  padding-right: 12px;
+  border-right: 1px solid #314158;
+  margin-right: 12px;
+}
