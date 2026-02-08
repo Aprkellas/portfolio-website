@@ -73,3 +73,19 @@
     opacity: 0.3;
   }
 }
+/* Desktop */
+@media (min-width: 768px) {
+  .mobile-header,
+  .footer-mobile {
+    display: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .desktop-header,
+  .desktop-footer {
+    display: none !important;
+  }
+}
+
