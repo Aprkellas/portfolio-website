@@ -1,11 +1,13 @@
 import { useLang } from "../../context/LanguageContext.tsx";
 import "./topbar.css";
 
-const tabs = ["Hello", "About Me", "Projects", "Contact Me"];
+
 
 export const TopBar = () => {
-  const { lang, toggle } = useLang();
+  const { t, lang, toggle } = useLang();
 
+  const tabs = [t.tabHello, t.tabAbout, t.tabProjects, t.tabContact];
+  
   return (
     <div className="topbar">
       <div className="topbar-left">

@@ -1,11 +1,12 @@
 import "./footer.css";
+import { useLang } from "../../context/LanguageContext.tsx";
 
 export const Footer = () => {
+  const { t } = useLang();
   return (
     <footer className="footer">
       <div className="footer-left">
-        <span className="footer-label">find me in:</span>
-
+        <span className="footer-label">{t.footer}</span>
         <a href="https://www.instagram.com/alexkellas/" target="_blank" rel="noreferrer" className="footer-icon">
           X
         </a>
