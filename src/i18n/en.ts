@@ -17,6 +17,11 @@ const en = {
   // footer 
   footer: "find me in:",
 
+  code: {
+    codeCommentProjects: "// Have a look at my projects",
+    codeCommentGithub: "// find my profile on Github",
+  },
+
   snake: {
     title: "React Snake Game",
     instructions1: "// use keyboard",

@@ -12,17 +12,21 @@ export const Home = () => {
         <h1>{t.name}</h1>
         <h2>&gt; {t.role}</h2>
         <pre className="code">
-          {t.hintComplete}
+          <span className="comment">{t.code.codeCommentProjects}</span>
           {"\n"}
-          {t.hintGithub}
+          <span className="comment">{t.code.codeCommentGithub}</span>
           {"\n"}
-          const githubLink = "https://github.com/Aprkellas";
+          <span className="keyword">var</span>{" "}
+          <span className="variable">githubLink</span><span className="colon"> =</span> {" "}
+          <span className="string"> "https://github.com/Aprkellas"</span>
+          <span className="colon">;</span>
         </pre>
       </div>
 
       <div className="snakePanel">
-            <Snake />
+        <Snake />
       </div>
     </div>
+
   );
 };
