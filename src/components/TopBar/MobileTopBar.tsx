@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import "./mobilepanel.css";
 import { useLang } from "../../context/LanguageContext.tsx";
+import { NavLink } from "react-router-dom";
 
 export function MobileTopBar() {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,12 @@ export function MobileTopBar() {
       document.body.style.overflow = "";
     };
   }, [open]);
-
+  const tabs = [
+      { label: t.tabHello, path: "/" },
+      { label: t.tabAbout, path: "/about" },
+      { label: t.tabProjects, path: "/projects" },
+      { label: t.tabContact, path: "/contact" },
+    ];
   return (
     <>
       <header className="mobile-topbar">
@@ -46,15 +52,18 @@ export function MobileTopBar() {
         </button>
 
         <nav className="panel-nav">
-          <a href="#about" onClick={() => setOpen(false)}>
-            {t.tabAbout}
-          </a>
-          <a href="#projects" onClick={() => setOpen(false)}>
-            {t.tabProjects}
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)}>
-            {t.tabContact}
-          </a>
+          {tabs.map(({ label, path }) => (
+          <NavLink
+            key={path}
+            to={path}
+            className={({ isActive }) =>
+              `tab ${isActive ? "active" : ""}`
+            }
+            end={path === "/"}
+          >
+            {label}
+          </NavLink>
+        ))}
         </nav>
 
         <div className="panel-lang">

@@ -1,0 +1,64 @@
+.about {
+  display: grid;
+  grid-template-columns: 240px 1fr 360px;
+  gap: 16px;
+  height: 100%;
+}
+
+/* Panels */
+.about__sidebar,
+.about__editor,
+.about__snippets {
+  background: rgba(10, 20, 35, 0.9);
+  border: 1px solid #314158;
+  border-radius: 12px;
+  overflow: hidden;
+
+  color: whitesmoke;
+}
+
+
+
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .about__sidebar {
+    order: 1;
+  }
+
+  .about__editor {
+    order: 2;
+  }
+
+  .about__snippets {
+    order: 3;
+  }
+}
+
+.tree {
+  font-family: monospace;
+  color: #cfd8e3;
+}
+
+.tree__header {
+  padding: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid #314158;
+}
+
+.tree__list {
+  list-style: none;
+  padding: 8px;
+}
+
+.tree__list li {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.tree__list li:hover {
+  background: rgba(255,255,255,0.05);
+}

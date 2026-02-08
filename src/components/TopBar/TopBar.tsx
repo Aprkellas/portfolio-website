@@ -1,12 +1,16 @@
 import { useLang } from "../../context/LanguageContext.tsx";
 import "./topbar.css";
-
-
+import { NavLink } from "react-router-dom";
 
 export const TopBar = () => {
   const { t, lang, toggle } = useLang();
 
-  const tabs = [t.tabHello, t.tabAbout, t.tabProjects, t.tabContact];
+  const tabs = [
+    { label: t.tabHello, path: "/" },
+    { label: t.tabAbout, path: "/about" },
+    { label: t.tabProjects, path: "/projects" },
+    { label: t.tabContact, path: "/contact" },
+  ];
   
   return (
     <div className="topbar">
@@ -15,13 +19,17 @@ export const TopBar = () => {
       </div>
 
       <div className="tabs">
-        {tabs.map((tab, i) => (
-          <button
-            key={tab}
-            className={`tab ${i === 0 ? "active" : ""}`}
+        {tabs.map(({ label, path }) => (
+          <NavLink
+            key={path}
+            to={path}
+            className={({ isActive }) =>
+              `tab ${isActive ? "active" : ""}`
+            }
+            end={path === "/"}
           >
-            {tab}
-          </button>
+            {label}
+          </NavLink>
         ))}
       </div>
 
