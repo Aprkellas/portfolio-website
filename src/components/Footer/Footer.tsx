@@ -6,17 +6,17 @@ export const Footer = () => {
       <div className="footer-left">
         <span className="footer-label">find me in:</span>
 
-        <a href="https://x.com" target="_blank" rel="noreferrer" className="footer-icon">
+        <a href="https://www.instagram.com/alexkellas/" target="_blank" rel="noreferrer" className="footer-icon">
           X
         </a>
 
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="footer-icon">
+        <a href="https://www.linkedin.com/in/alex-kellas-70470b174/" target="_blank" rel="noreferrer" className="footer-icon">
           in
         </a>
       </div>
 
       <div className="footer-right">
-        <span className="footer-username">@username</span>
+        <span className="footer-username">@Aprkellas</span>
         <span className="footer-icon">⌁</span>
       </div>
     </footer>
