@@ -164,3 +164,26 @@
     background: rgba(255,255,255,0.25);
 }
 
+.mobile-header {
+  height: 48px;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: transparent;
+  border-bottom: 1px solid #314158;
+
+  font-family: monospace;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mobile-menu {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}

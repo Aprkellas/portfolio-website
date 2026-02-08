@@ -56,3 +56,8 @@
   border-right: 1px solid #314158;
   margin-right: 12px;
 }
+
+.footer-mobile {
+  position: sticky;
+  bottom: 0;
+}
