@@ -1,7 +1,7 @@
 import { useSnake } from "../../hooks/useSnake";
 import { useGameLoop } from "../../hooks/useGameLoop";
 import { useKeyboard } from "../../hooks/useKeyboard";
-import { useLang  } from "../../../../context/LanguageContext";
+import { useLang  } from "../../../../context/LanguageContext.tsx";
 
 import { useState } from "react";
 import Board from "../Board/Board";

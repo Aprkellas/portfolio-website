@@ -1,5 +1,5 @@
 function Score({ score, lang }) {
-  return <div>{lang.score}: {score}</div>;
+  return <div>{lang.snake.score}: {score}</div>;
 }
 
 export default Score;
