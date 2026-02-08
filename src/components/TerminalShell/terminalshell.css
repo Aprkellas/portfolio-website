@@ -9,10 +9,11 @@
 
 .green {
   position: fixed;
-  width: 454px;
-  height: 492px;
+  width: clamp(30vh, 50vh, 60vh);
+  height: clamp(35vh, 55vh, 65vh);
   right: 30%;
-  bottom: 40%;
+  bottom: 3vh;
+  top: 5vh;
 
   background: #00D5BE;
   opacity: 0.4;
@@ -21,10 +22,10 @@
 }
 .blue {
   position: absolute;
-  width: 454px;
-  height: 492px;
-  right: 10%;
-  bottom: 10%;
+  width: clamp(30vh, 50vh, 60vh);
+  height: clamp(35vh, 55vh, 65vh);
+  right: 3vh;
+  bottom: 3vh;
 
   background: #615FFF;
   opacity: 0.4;
@@ -41,8 +42,6 @@
   background: #071631;
 
   position: relative;
-  /* display: flex;
-  flex-direction: column; */
   
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.06),
@@ -53,7 +52,7 @@
 
 .terminal-content {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 24px;
 }
 
