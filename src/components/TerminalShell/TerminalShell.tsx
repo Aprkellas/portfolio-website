@@ -10,11 +10,9 @@ export const TerminalShell = ({children}: {children: React.ReactNode}) => {
                 <img className="blue" src={'../../styles/images/Blue.png'} alt="Logo" />
 
                 <TopBar />
-                
                 <div className="terminal-content">
                     {children}
                 </div>
-                
                 <Footer />
             </div>
 

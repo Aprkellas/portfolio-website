@@ -1,5 +1,6 @@
 import { useLang } from "../../context/LanguageContext.tsx";
 import "./home.css";
+import { Snake } from "../../components/Snake/Snake.tsx";
 
 export const Home = () => {
   const { t } = useLang();
@@ -20,9 +21,7 @@ export const Home = () => {
       </div>
 
       <div className="snakePanel">
-        {/* TODO: Put snakeComponent */}
-        <button className="start">start-game</button>
-        <button className="skip">skip</button>
+            <Snake />
       </div>
     </div>
   );
