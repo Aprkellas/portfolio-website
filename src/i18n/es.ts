@@ -16,6 +16,16 @@ const es = {
 
   // footer
   footer: "encuéntrame en:",
+
+  snake: {
+    title: "Juego Snake en React",
+    instructions1: "// usar teclado",
+    instructions2: "// flechas para jugar",
+    score: "Puntuación",
+    start: "iniciar-juego",
+    restart: "reiniciar",
+    gameOver: "FIN DEL JUEGO",
+  },
 };
 
 export default es;

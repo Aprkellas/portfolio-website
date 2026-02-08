@@ -1,6 +1,7 @@
 import { useSnake } from "../../hooks/useSnake";
 import { useGameLoop } from "../../hooks/useGameLoop";
 import { useKeyboard } from "../../hooks/useKeyboard";
+import { useLang  } from "../../../../context/LanguageContext";
 
 import { useState } from "react";
 import Board from "../Board/Board";
@@ -8,6 +9,8 @@ import Score from "../UI/Score";
 import "./Game.css";
 
 function Game() {
+    const { t } = useLang();
+
     const [direction, setDirection] = useState("RIGHT");
     const [isRunning, setIsRunning] = useState(false);
 
@@ -29,7 +32,7 @@ function Game() {
     return (
         <div className="app">
             <div className="console-wrapper">
-                <div className="snake-tab">React Snake Game</div>
+                <div className="snake-tab">{t.snake.title}</div>
 
                 <div className="console">
                     <div className="board-wrapper">
@@ -37,17 +40,17 @@ function Game() {
 
                     {isGameOver && (
                         <div className="game-over-overlay">
-                            GAME OVER
+                            {t.snake.gameOver}
                         </div>
                     )}
                     </div>
 
                     <aside className="snake-panel">
-                        <p>// use keyboard</p>
-                        <p>// arrows to play</p>
+                        <p>{t.snake.instructions1}</p>
+                        <p>{t.snake.instructions2}</p>
 
                     <div className="score">
-                        <Score score={score} />
+                        <Score score={score} lang={t} />
                     </div>
 
                     <button
@@ -58,7 +61,7 @@ function Game() {
                         setDirection("RIGHT");
                         }}
                     >
-                        {isGameOver ? "restart" : "start-game"}
+                        {isGameOver ? t.snake.restart : t.snake.start}
                     </button>
                     </aside>
                 </div>

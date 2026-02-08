@@ -80,7 +80,8 @@
   background: #ffb561;
   color: #1b1207;
 
-  font-family: inherit;
+  font-size: large;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   cursor: pointer;
 }
 

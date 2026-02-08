@@ -1,3 +1,5 @@
+import Score from "../features/snake/components/UI/Score";
+
 const en = {
   greeting: "Hey, I am",
   name: "Alex Kellas",
@@ -14,6 +16,16 @@ const en = {
 
   // footer 
   footer: "find me in:",
+
+  snake: {
+    title: "React Snake Game",
+    instructions1: "// use keyboard",
+    instructions2: "// arrows to play",
+    score: "Score",
+    start: "start-game",
+    restart: "restart",
+    gameOver: "GAME OVER",
+  },
 };
 
 export default en;
