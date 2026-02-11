@@ -1,22 +1,22 @@
 import "./about.css";
 import { AboutTree } from "./AboutTree.tsx";
 import { AboutContent } from "./AboutContent.tsx";
-import { CodeSnippets } from "./CodeSnippets.tsx";
+import { useState } from "react";
 
 export function About() {
+
+  const [section, setSection] = useState("personal-info");
+  
   return (
     <section className="about">
       <aside className="about__sidebar">
-        <AboutTree />
+        <AboutTree selected={section} onSelect={setSection} />
       </aside>
 
       <main className="about__editor">
-        <AboutContent />
+        <AboutContent section={section} />
       </main>
 
-      <aside className="about__snippets">
-        <CodeSnippets />
-      </aside>
     </section>
   );
 }

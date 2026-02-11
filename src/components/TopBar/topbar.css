@@ -64,7 +64,7 @@
 
 /* ACTIVE TAB */
 .tab.active {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.5);
 }
 
 .tab.active::before {
