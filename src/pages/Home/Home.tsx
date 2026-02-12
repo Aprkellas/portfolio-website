@@ -4,7 +4,8 @@ import { Snake } from "../../components/Snake/Snake.tsx";
 
 export const Home = () => {
   const { t } = useLang();
-
+  let href  = "https://github.com/Aprkellas";
+  
   return (
     <div className="main">
       <div className="copy">
@@ -17,8 +18,17 @@ export const Home = () => {
           <span className="comment">{t.code.codeCommentGithub}</span>
           {"\n"}
           <span className="keyword">var</span>{" "}
-          <span className="variable">githubLink</span><span className="colon"> =</span> {" "}
-          <span className="string"> "https://github.com/Aprkellas"</span>
+          <span className="variable">githubLink</span><span className="colon"> =</span> 
+          <span className="string">
+            <a 
+              href={href} 
+              className="string" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+            {href}
+            </a>  
+          </span>
           <span className="colon">;</span>
         </pre>
       </div>

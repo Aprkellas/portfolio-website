@@ -1,5 +1,6 @@
 import "./footer.css";
 import { useLang } from "../../context/LanguageContext.tsx";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 export const Footer = () => {
   const { t } = useLang();
@@ -7,12 +8,22 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer-left">
         <span className="footer-label">{t.footer}</span>
-        <a href="https://www.instagram.com/alexkellas/" target="_blank" rel="noreferrer" className="footer-icon">
-          X
+        <a 
+          href="https://www.instagram.com/alexkellas/" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="footer-icon"
+        >
+          <FaInstagram />
         </a>
 
-        <a href="https://www.linkedin.com/in/alex-kellas-70470b174/" target="_blank" rel="noreferrer" className="footer-icon">
-          in
+        <a 
+          href="https://www.linkedin.com/in/alex-kellas-70470b174/" 
+          target="_blank" 
+          rel="noreferrer"
+          className="footer-icon"
+        >
+          <FaLinkedinIn />
         </a>
       </div>
 
