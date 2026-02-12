@@ -31,6 +31,13 @@ const es = {
     restart: "reiniciar",
     gameOver: "FIN DEL JUEGO",
   },
+
+  aboutme: {
+    personalInfo: "información-personal",
+    professionalInfo: "información-profesional",
+    hobbies: "pasatiempos",
+    contacts: "contactos",
+  }
 };
 
 export default es;

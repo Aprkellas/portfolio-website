@@ -31,6 +31,11 @@ const en = {
     restart: "restart",
     gameOver: "GAME OVER",
   },
+  aboutme: {
+    personalInfo: "personal-info",
+    professionalInfo: "professional-info",
+    hobbies: "hobbies", contacts: "contacts",
+  }
 };
 
 export default en;

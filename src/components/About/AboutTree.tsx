@@ -1,14 +1,20 @@
+import { use } from "react";
+import { useLang } from "../../context/LanguageContext.tsx";
+
+
 type Props = {
   selected: string;
   onSelect: (section: string) => void;
 };
 
 export function AboutTree({ selected, onSelect }: Props) {
+  const { t } = useLang();
+  
   const items = [
-    "personal-info",
-    "professional-info",
-    "hobbies",
-    "contacts",
+    t.aboutme.personalInfo, 
+    t.aboutme.professionalInfo, 
+    t.aboutme.hobbies, 
+    t.aboutme.contacts
   ];
 
   return (

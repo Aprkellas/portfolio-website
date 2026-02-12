@@ -16,7 +16,6 @@ export function About() {
       <main className="about__editor">
         <AboutContent section={section} />
       </main>
-
     </section>
   );
 }
