@@ -18,9 +18,6 @@ export function AboutContent({ section }: Props) {
     case t.aboutme.hobbies:
       return <p>These are hobbies.</p>;
 
-    case t.aboutme.contacts:
-      return <p>These are contact details.</p>;
-
     default:
       return null;
   }

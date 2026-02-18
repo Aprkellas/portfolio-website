@@ -1,65 +1,109 @@
 .about {
-  display: grid;
-  grid-template-columns: 240px 1fr ;
+  grid-row: auto auto;
   gap: 16px;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
-/* Panels */
-.about__sidebar,
 .about__editor {
   background: rgba(10, 20, 35, 0.9);
   border: 1px solid #314158;
   border-radius: 12px;
+  min-height: 67vh;
+  height: auto;
   overflow: hidden;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.05),
     0 10px 30px rgba(0,0,0,0.5);
-  
+    padding: 40px 24px 24px 24px; 
+
   color: whitesmoke;
 }
 
+.about-wrapper {
+  position: relative;
+  height: 100%;
+}
+.about_tabs-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.about_tabs-list::-webkit-scrollbar {
+  display: none;
+}
+.about_tabs {
+  position: absolute;
+  top: -18px;        
+  left: 24px;        
+  z-index: 3;
+}
+.about_tab {
+  padding: 6px 18px;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #0f3c3f, #203b6d);
+  color: #7fffd4;
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+
+  border: none;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.08),
+    0 6px 20px rgba(0,0,0,0.4);
+
+  transition: 0.2s ease;
+}
+
+.about_tab:hover {
+  background: rgba(35, 55, 85, 0.9);
+  color: white;
+}
+
+.about_tab.active {
+  background: rgba(10, 20, 35, 1);
+  color: #4df3c5;
+  box-shadow: 0 -2px 8px rgba(77, 243, 197, 0.2);
+}
+
+.about_tab::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -6px;
+
+  width: 24px;
+  height: 6px;
+
+  background: #203b6d;
+  border-radius: 0 0 6px 6px;
+}
+
 @media (max-width: 768px) {
+
   .about {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    gap: 12px;
   }
 
-  .about__sidebar {
-    order: 1;
+  .about_tabs {
+    top: -14px;
+    left: 12px;
+  }
+
+  .about_tab {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 10px;
   }
 
   .about__editor {
-    order: 2;
+    padding: 32px 16px 16px 16px;
+    border-radius: 10px;
   }
-}
 
-.tree {
-  font-family: monospace;
-  color: #cfd8e3;
-}
-
-.tree__header {
-  padding: 12px;
-  font-weight: bold;
-  border-bottom: 1px solid #314158;
-}
-
-.tree__list {
-  list-style: none;
-  padding: 8px;
-}
-
-.tree__list li {
-  padding: 6px 8px;
-  cursor: pointer;
-}
-
-.tree__list li:hover {
-  background: rgba(255,255,255,0.05);
-}
-
-.tree__list li.active {
-  background: rgba(77, 163, 255, 0.15);
-  color: #f4c67a;
 }
