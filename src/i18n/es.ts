@@ -37,6 +37,16 @@ const es = {
     professionalInfo: "información-profesional",
     hobbies: "pasatiempos",
     contacts: "contactos",
+    personalInfoContent: {
+      heading: "Sobre Mí",
+      greeting: "Hola, soy Alex 👋",
+      bio: [
+        "Soy un Ingeniero de Software full-stack del Reino Unido, con estudios en Ingeniería Mecánica (Grado) y un Máster en Ciencias de la Computación. Trabajo principalmente con C# / .NET y React, y disfruto construyendo aplicaciones web limpias y fiables de principio a fin.",
+        "Empecé mi carrera en robótica y visión por computador en Insphere, donde diseñé herramientas de calibración y reconstruí plataformas heredadas antes de pasar al desarrollo full-stack. Me encanta el lado de resolución de problemas de la ingeniería, ya sea diseñando una arquitectura escalable o depurando un caso límite complicado.",
+        "Fuera del trabajo, me encontrarás escalando, viajando en mi furgoneta camper, o intentando mantener una conversación en español (o en italiano — ¡recientemente he empezado!).",
+      ],
+      tags: ["Ingeniero Full-Stack", "C# / .NET", "React", "Máster en Informática", "Escalador"],
+    },
     professionalContent: {
       heading: "Info Profesional",
       profileTitle: "Perfil Personal",

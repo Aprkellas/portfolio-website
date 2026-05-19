@@ -35,6 +35,16 @@ const en = {
     personalInfo: "personal-info",
     professionalInfo: "professional-info",
     hobbies: "hobbies", contacts: "contacts",
+    personalInfoContent: {
+      heading: "About Me",
+      greeting: "Hi, I'm Alex 👋",
+      bio: [
+        "I'm a full-stack Software Engineer based in the UK, with a background in Mechanical Engineering (BEng) and a Master's in Computer Science. I work primarily with C# / .NET and React, and I enjoy building clean, reliable web applications end-to-end.",
+        "I started my career in robotics and computer vision at Insphere, where I designed calibration tooling and rebuilt legacy platforms before moving into full-stack development. I love the problem-solving side of engineering — whether that's designing a scalable architecture or debugging a gnarly edge case.",
+        "Outside of work, you'll find me rock climbing, travelling in my campervan, or trying to hold a conversation in Spanish (or Italian — I've recently started!).",
+      ],
+      tags: ["Full-Stack Engineer", "C# / .NET", "React", "MSc Computer Science", "Rock Climber"],
+    },
     professionalContent: {
       heading: "Professional Info",
       profileTitle: "Personal Profile",
