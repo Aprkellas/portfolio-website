@@ -68,7 +68,7 @@ export function MobileTopBar() {
 
         <div className="panel-lang">
           <a
-            href="/cv.pdf"
+            href="/Alex_Kellas_CV_2026.pdf"
             download
             className="cv-btn"
             aria-label="Download CV"
