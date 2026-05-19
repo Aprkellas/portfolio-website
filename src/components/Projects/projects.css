@@ -38,14 +38,23 @@
 }
 
 .carousel__track-wrapper {
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   flex: 1;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.carousel__track-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel__track {
   display: flex;
   gap: 24px;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ── Nav buttons ── */
@@ -100,6 +109,7 @@
 .project-card {
   flex: 0 0 calc((100% - 48px) / 3);
   min-width: 0;
+  scroll-snap-align: start;
   background: rgba(10, 20, 35, 0.9);
   border: 1px solid #314158;
   border-radius: 12px;

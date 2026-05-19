@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ProjectCard, ProjectData } from "./ProjectCard.tsx";
 
 const PLACEHOLDER_PROJECTS: ProjectData[] = [
@@ -50,18 +50,52 @@ function useVisible() {
 
 export function ProjectsCarousel() {
   const [index, setIndex] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const VISIBLE = useVisible();
 
   const maxIndex = Math.max(0, PLACEHOLDER_PROJECTS.length - VISIBLE);
 
-  // Reset index when VISIBLE changes to avoid being out of bounds
+  // Reset index when VISIBLE changes
   useEffect(() => {
     setIndex(0);
   }, [VISIBLE]);
 
-  const prev = () => setIndex((i) => Math.max(0, i - 1));
-  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
+  // Scroll the wrapper so the correct card is snapped into view
+  const scrollToIndex = useCallback((i: number) => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const track = wrapper.firstElementChild as HTMLElement;
+    if (!track) return;
+    const card = track.children[i] as HTMLElement;
+    if (!card) return;
+    wrapper.scrollTo({ left: card.offsetLeft, behavior: "smooth" });
+  }, []);
+
+  const prev = () => {
+    const next = Math.max(0, index - 1);
+    setIndex(next);
+    scrollToIndex(next);
+  };
+
+  const next = () => {
+    const nextI = Math.min(maxIndex, index + 1);
+    setIndex(nextI);
+    scrollToIndex(nextI);
+  };
+
+  // Keep index in sync when user swipes manually
+  const handleScroll = useCallback(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const track = wrapper.firstElementChild as HTMLElement;
+    if (!track) return;
+    const firstCard = track.children[0] as HTMLElement;
+    if (!firstCard) return;
+    const cardWidth = firstCard.offsetWidth;
+    const gap = 24;
+    const newIndex = Math.round(wrapper.scrollLeft / (cardWidth + gap));
+    setIndex(Math.min(maxIndex, Math.max(0, newIndex)));
+  }, [maxIndex]);
 
   return (
     <div className="carousel">
@@ -74,14 +108,8 @@ export function ProjectsCarousel() {
         ‹
       </button>
 
-      <div className="carousel__track-wrapper">
-        <div
-          className="carousel__track"
-          ref={trackRef}
-          style={{
-            transform: `translateX(calc(-${index} * (100% / ${VISIBLE} + 8px)))`,
-          }}
-        >
+      <div className="carousel__track-wrapper" ref={wrapperRef} onScroll={handleScroll}>
+        <div className="carousel__track">
           {PLACEHOLDER_PROJECTS.map((project, i) => (
             <ProjectCard key={i} project={project} />
           ))}
@@ -105,7 +133,7 @@ export function ProjectsCarousel() {
           <button
             key={i}
             className={`carousel__dot${i === index ? " carousel__dot--active" : ""}`}
-            onClick={() => setIndex(i)}
+            onClick={() => { setIndex(i); scrollToIndex(i); }}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
