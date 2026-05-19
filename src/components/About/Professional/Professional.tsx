@@ -33,7 +33,8 @@ function SkillBar({ skill }: { skill: Skill }) {
   const filled = Math.round((skill.level / 100) * blocks);
 
   return (
-    <div className="skill-row">
+    <div className="skill-row" style={{ "--level": `${skill.level}%` } as React.CSSProperties}>
+      {/* Desktop: block bars */}
       <span className="skill-name">{skill.name}</span>
       <div className="skill-bar" aria-label={`${skill.name}: ${skill.level}%`}>
         {Array.from({ length: blocks }).map((_, i) => (
@@ -44,6 +45,19 @@ function SkillBar({ skill }: { skill: Skill }) {
         ))}
       </div>
       <span className="skill-level">{skill.level}</span>
+
+      {/* Mobile: circular wheel */}
+      <div className="skill-wheel" aria-hidden="true">
+        <svg viewBox="0 0 36 36" className="skill-wheel__svg">
+          <circle className="skill-wheel__bg" cx="18" cy="18" r="15.9" />
+          <circle className="skill-wheel__fill" cx="18" cy="18" r="15.9"
+            strokeDasharray={`${skill.level} ${100 - skill.level}`}
+            strokeDashoffset="25"
+          />
+        </svg>
+        <span className="skill-wheel__label">{skill.level}</span>
+      </div>
+      <span className="skill-wheel-name">{skill.name}</span>
     </div>
   );
 }
@@ -54,9 +68,11 @@ function SkillGroup({ title, skills }: { title: string; skills: Skill[] }) {
       <h3 className="skill-group__title">
         <span className="skill-group__comment">// </span>{title}
       </h3>
-      {skills.map((s) => (
-        <SkillBar key={s.name} skill={s} />
-      ))}
+      <div className="skill-group__wheels">
+        {skills.map((s) => (
+          <SkillBar key={s.name} skill={s} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -19,7 +19,6 @@ export function MobileTopBar() {
       { label: t.tabHello, path: "/" },
       { label: t.tabAbout, path: "/about" },
       { label: t.tabProjects, path: "/projects" },
-      { label: t.tabContact, path: "/contact" },
     ];
   return (
     <>
@@ -60,6 +59,7 @@ export function MobileTopBar() {
               `tab ${isActive ? "active" : ""}`
             }
             end={path === "/"}
+            onClick={() => setOpen(false)}
           >
             {label}
           </NavLink>
