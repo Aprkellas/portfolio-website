@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ProjectCard, ProjectData } from "./ProjectCard.tsx";
 
 const PLACEHOLDER_PROJECTS: ProjectData[] = [
@@ -34,23 +34,34 @@ const PLACEHOLDER_PROJECTS: ProjectData[] = [
   },
 ];
 
-// How many cards visible at once (rough guide — CSS handles exact sizing)
-const VISIBLE = 3;
+// How many cards visible at once (responsive)
+function useVisible() {
+  const [visible, setVisible] = useState(() =>
+    window.matchMedia("(max-width: 600px)").matches ? 1 : 3
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 600px)");
+    const handler = (e: MediaQueryListEvent) => setVisible(e.matches ? 1 : 3);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return visible;
+}
 
 export function ProjectsCarousel() {
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const VISIBLE = useVisible();
 
   const maxIndex = Math.max(0, PLACEHOLDER_PROJECTS.length - VISIBLE);
 
+  // Reset index when VISIBLE changes to avoid being out of bounds
+  useEffect(() => {
+    setIndex(0);
+  }, [VISIBLE]);
+
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
-
-  // Calculate offset: each card is (100% - gaps) / VISIBLE wide
-  // We shift by one card width including gap per step
-  const cardWidthPercent = 100 / VISIBLE;
-  // gap between cards is 24px; approximate offset
-  const offset = index * (cardWidthPercent / 100);
 
   return (
     <div className="carousel">

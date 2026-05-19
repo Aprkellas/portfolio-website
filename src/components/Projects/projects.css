@@ -196,7 +196,33 @@
 }
 
 @media (max-width: 600px) {
+  .projects {
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
   .project-card {
     flex: 0 0 100%;
+  }
+
+  /* Hide side buttons; use absolute overlay so track takes full width */
+  .carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(7, 22, 49, 0.75);
+  }
+
+  .carousel__btn[aria-label="Previous"] {
+    left: 4px;
+  }
+
+  .carousel__btn[aria-label="Next"] {
+    right: 4px;
+  }
+
+  .carousel__track-wrapper {
+    width: 100%;
   }
 }
