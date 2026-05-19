@@ -57,20 +57,9 @@ export function Hobbies() {
 						aria-label="Instagram post embed"
 						className="instagram-media"
 						data-instgrm-allow-transparency
-						data-instgrm-captioned
+                        data-instgrm-hide-caption
 						data-instgrm-permalink={instagramPostUrl}
 						data-instgrm-version="14"
-						style={{
-							background: "#fff",
-							border: 0,
-							borderRadius: 12,
-							boxShadow: "0 1px 3px rgba(0, 0, 0, 0.2)",
-							margin: 0,
-							maxWidth: "100%",
-							minWidth: 0,
-							padding: 0,
-							width: "100%",
-						}}
 					>
 						<a href={instagramPostUrl} target="_blank" rel="noreferrer noopener">
 							View the Instagram post

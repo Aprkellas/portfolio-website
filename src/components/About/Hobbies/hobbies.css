@@ -9,7 +9,6 @@
 	overflow-x: hidden;
 	min-height: 0;
 	box-sizing: border-box;
-	padding-right: 12px;
 	overscroll-behavior: contain;
 }
 
@@ -22,10 +21,9 @@
 
 .hobbies__layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+	grid-template-columns: 1fr 1fr;
 	gap: 24px;
 	align-items: start;
-	min-height: 0;
 }
 
 .hobbies__copy p {
@@ -45,19 +43,21 @@
 }
 
 .hobbies__media {
+	display: flex;
 	flex-direction: column;
 	gap: 12px;
-    max-width: 100%;
-    max-height: fit-content;
 	min-width: 0;
-	min-height: 0;
+	position: sticky;
+	top: 0;
+	align-self: start;
 }
 
+/* blockquote before script runs */
 .hobbies__media .instagram-media {
 	width: 100% !important;
 	min-width: 0 !important;
 	max-width: 100% !important;
-	overflow: hidden;
+	margin: 0 !important;
 }
 
 .hobbies__fallback {
@@ -67,7 +67,7 @@
 }
 
 .hobbies::-webkit-scrollbar {
-	width: 8px;
+	width: 6px;
 }
 
 .hobbies::-webkit-scrollbar-track {
@@ -83,6 +83,11 @@
 @media (max-width: 900px) {
 	.hobbies__layout {
 		grid-template-columns: 1fr;
+	}
+
+	.hobbies__media {
+		position: static;
+		order: 1;
 	}
 }
 
