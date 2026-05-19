@@ -1,5 +1,3 @@
-import { Footer } from "../components/Footer/Footer";
-
 const es = {
   greeting: "Hola a todos. Soy",
   name: "Alex Kellas",

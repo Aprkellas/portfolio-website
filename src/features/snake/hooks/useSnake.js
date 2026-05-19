@@ -25,6 +25,7 @@ export function useSnake() {
         case "DOWN": next.y += 1; break;
         case "LEFT": next.x -= 1; break;
         case "RIGHT": next.x += 1; break;
+        default: break;
       }
 
       if (

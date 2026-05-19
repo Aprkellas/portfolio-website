@@ -79,7 +79,7 @@ function SkillGroup({ title, skills }: { title: string; skills: Skill[] }) {
   return (
     <div className="skill-group">
       <h3 className="skill-group__title">
-        <span className="skill-group__comment">// </span>{title}
+        <span className="skill-group__comment">{"// "}</span>{title}
       </h3>
       <div className="skill-group__wheels">
         {skills.map((s) => (
@@ -103,14 +103,14 @@ export function Professional() {
         <div className="professional__left">
           <section className="professional__section">
             <h3 className="professional__section-title">
-              <span className="skill-group__comment">// </span>{p.profileTitle}
+              <span className="skill-group__comment">{"// "}</span>{p.profileTitle}
             </h3>
             <p className="professional__bio">{p.profileBio}</p>
           </section>
 
           <section className="professional__section">
             <h3 className="professional__section-title">
-              <span className="skill-group__comment">// </span>{p.qualificationsTitle}
+              <span className="skill-group__comment">{"// "}</span>{p.qualificationsTitle}
             </h3>
             <ul className="professional__quals">
               {p.qualifications.map((q) => (

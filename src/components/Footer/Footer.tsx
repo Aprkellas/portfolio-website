@@ -1,6 +1,6 @@
 import "./footer.css";
 import { useLang } from "../../context/LanguageContext.tsx";
-import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 export const Footer = () => {
   const { t } = useLang();
