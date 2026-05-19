@@ -1,41 +1,54 @@
 import "./professional.css";
 import { useLang } from "../../../context/LanguageContext.tsx";
+import {
+  SiSharp, SiTypescript, SiReact, SiPython,
+  SiMysql, SiMongodb, SiGit, SiDocker,
+  SiKubernetes, SiGnubash, SiBlazor, SiDotnet,
+} from "react-icons/si";
+import { TbBrandAzure } from "react-icons/tb";
+import { IconType } from "react-icons";
 
 interface Skill {
   name: string;
   level: number; // 0–100
+  icon: IconType;
 }
 
 // Skill data is language-agnostic (names are proper nouns / universal)
 const skillGroups: Skill[][] = [
   [
-    { name: "C# / .NET (6-9)", level: 90 },
-    { name: "TypeScript / JavaScript", level: 70 },
-    { name: "React", level: 60 },
-    { name: "Blazor / WPF", level: 80 },
-    { name: "Python (Django, Flask)", level: 50 },
+    { name: "C# / .NET (6-9)", level: 90, icon: SiDotnet },
+    { name: "TypeScript / JavaScript", level: 70, icon: SiTypescript },
+    { name: "React", level: 60, icon: SiReact },
+    { name: "Blazor", level: 80, icon: SiBlazor },
+    { name: "WPF", level: 80, icon: SiSharp },
+    { name: "Python (Django, Flask)", level: 50, icon: SiPython },
   ],
   [
-    { name: "MySQL / SQL", level: 60 },
-    { name: "MongoDB", level: 50 },
+    { name: "MySQL / SQL", level: 60, icon: SiMysql },
+    { name: "MongoDB", level: 50, icon: SiMongodb },
   ],
   [
-    { name: "Git", level: 88 },
-    { name: "Azure DevOps", level: 75 },
-    { name: "Docker", level: 40 },
-    { name: "Kubernetes", level: 30 },
-    { name: "Shell Scripting", level: 55 },
+    { name: "Git", level: 88, icon: SiGit },
+    { name: "Azure DevOps", level: 75, icon: TbBrandAzure },
+    { name: "Docker", level: 40, icon: SiDocker },
+    { name: "Kubernetes", level: 30, icon: SiKubernetes },
+    { name: "Shell Scripting", level: 55, icon: SiGnubash },
   ],
 ];
 
 function SkillBar({ skill }: { skill: Skill }) {
   const blocks = 20;
   const filled = Math.round((skill.level / 100) * blocks);
+  const Icon = skill.icon;
 
   return (
     <div className="skill-row" style={{ "--level": `${skill.level}%` } as React.CSSProperties}>
       {/* Desktop: block bars */}
-      <span className="skill-name">{skill.name}</span>
+      <span className="skill-name">
+        <Icon className="skill-icon" aria-hidden="true" />
+        {skill.name}
+      </span>
       <div className="skill-bar" aria-label={`${skill.name}: ${skill.level}%`}>
         {Array.from({ length: blocks }).map((_, i) => (
           <div
