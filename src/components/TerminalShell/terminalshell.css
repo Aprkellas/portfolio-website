@@ -60,6 +60,7 @@
   .page {
     padding-top: 0;
     padding-bottom: 0;
+    min-height: unset;
     height: 100vh;
     height: 100svh;
     overflow: hidden;
