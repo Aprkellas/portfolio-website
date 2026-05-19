@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import "./mobilepanel.css";
 import { useLang } from "../../context/LanguageContext.tsx";
+import { NavLink } from "react-router-dom";
 
 export function MobileTopBar() {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,11 @@ export function MobileTopBar() {
       document.body.style.overflow = "";
     };
   }, [open]);
-
+  const tabs = [
+      { label: t.tabHello, path: "/" },
+      { label: t.tabAbout, path: "/about" },
+      { label: t.tabProjects, path: "/projects" },
+    ];
   return (
     <>
       <header className="mobile-topbar">
@@ -46,28 +51,41 @@ export function MobileTopBar() {
         </button>
 
         <nav className="panel-nav">
-          <a href="#about" onClick={() => setOpen(false)}>
-            {t.tabAbout}
-          </a>
-          <a href="#projects" onClick={() => setOpen(false)}>
-            {t.tabProjects}
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)}>
-            {t.tabContact}
-          </a>
+          {tabs.map(({ label, path }) => (
+          <NavLink
+            key={path}
+            to={path}
+            className={({ isActive }) =>
+              `tab ${isActive ? "active" : ""}`
+            }
+            end={path === "/"}
+            onClick={() => setOpen(false)}
+          >
+            {label}
+          </NavLink>
+        ))}
         </nav>
 
         <div className="panel-lang">
-        <button
-          className={`lang-toggle ${lang === "es" ? "active" : ""}`}
-          onClick={toggle}
-          aria-label="Toggle language"
-        >
-          <span className="lang-label">EN</span>
-          <span className="lang-thumb" />
-          <span className="lang-label">ES</span>
-        </button>
-      </div>
+          <a
+            href="/cv.pdf"
+            download
+            className="cv-btn"
+            aria-label="Download CV"
+            onClick={() => setOpen(false)}
+          >
+            {t.downloadCV}
+          </a>
+          <button
+            className={`lang-toggle ${lang === "es" ? "active" : ""}`}
+            onClick={toggle}
+            aria-label="Toggle language"
+          >
+            <span className="lang-label">EN</span>
+            <span className="lang-thumb" />
+            <span className="lang-label">ES</span>
+          </button>
+        </div>
       </aside>
     </>
   );

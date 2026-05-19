@@ -1,6 +1,5 @@
 import "./footer.css";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { useLang } from "../../context/LanguageContext.tsx";
 
 export function MobileFooter() {
@@ -15,11 +14,11 @@ export function MobileFooter() {
           target="_blank"
           className="footer-icon"
         >
-          <FaXTwitter />
+          <FaInstagram />
         </a>
 
         <a
-          href="https://linkedin.com/in/yourhandle"
+          href="https://www.linkedin.com/in/alex-kellas-70470b174/"
           target="_blank"
           className="footer-icon"
         >
@@ -27,7 +26,7 @@ export function MobileFooter() {
         </a>
 
         <a
-          href="https://github.com/yourhandle"
+          href="https://github.com/Aprkellas"
           target="_blank"
           className="footer-icon"
         >

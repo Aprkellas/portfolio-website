@@ -1,11 +1,12 @@
+import { Outlet } from "react-router-dom";
 import "./terminalshell.css";
 import { TopBar } from "../TopBar/TopBar.tsx";
 import { Footer } from "../Footer/Footer.tsx";
 import { MobileTopBar } from "../TopBar/MobileTopBar.tsx";
 import { MobileFooter } from "../Footer/MobileFooter.tsx";
 
-export const TerminalShell = ({children}: {children: React.ReactNode}) => {
-    return (
+export const TerminalShell = () => {
+  return (
         <div className="page">
             <div className="terminal">
                 <img className="green" src={'../../styles/images/Green.png'} alt="Logo" />
@@ -19,7 +20,7 @@ export const TerminalShell = ({children}: {children: React.ReactNode}) => {
                 </div>
 
                 <div className="terminal-content">
-                    {children}
+                    <Outlet />
                 </div>
                 
                 <div className="footer-mobile">
