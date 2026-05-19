@@ -31,6 +31,11 @@ const en = {
     restart: "restart",
     gameOver: "GAME OVER",
   },
+  projects: {
+    title: "Projects",
+    subtitle: "// projects sourced from my GitHub — coming soon",
+  },
+
   aboutme: {
     personalInfo: "personal-info",
     professionalInfo: "professional-info",

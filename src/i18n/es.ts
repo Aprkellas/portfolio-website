@@ -32,6 +32,11 @@ const es = {
     gameOver: "FIN DEL JUEGO",
   },
 
+  projects: {
+    title: "Proyectos",
+    subtitle: "// proyectos de mi GitHub — próximamente",
+  },
+
   aboutme: {
     personalInfo: "información-personal",
     professionalInfo: "información-profesional",
