@@ -37,6 +37,23 @@ const es = {
     professionalInfo: "información-profesional",
     hobbies: "pasatiempos",
     contacts: "contactos",
+    professionalContent: {
+      heading: "Info Profesional",
+      profileTitle: "Perfil Personal",
+      profileBio:
+        "Ingeniero de Software full-stack con experiencia en aplicaciones web usando C# .NET y React. Un compañero accesible, flexible, trabajador y fiable, hábil para trabajar de forma colaborativa y proactiva. Con ganas de asumir nuevos retos, resolver problemas y ampliar conocimientos.",
+      qualificationsTitle: "Estudios",
+      qualifications: [
+        "Máster en Ciencias de la Computación",
+        "Grado en Ingeniería Mecánica",
+        "Operador de Robot KUKA Nivel 1",
+      ],
+      groups: [
+        { title: "Lenguajes y Frameworks" },
+        { title: "Bases de Datos" },
+        { title: "DevOps y Herramientas" },
+      ],
+    },
     hobbiesContent: {
       title: "Pasatiempos",
       paragraphOne:

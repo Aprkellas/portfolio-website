@@ -35,6 +35,23 @@ const en = {
     personalInfo: "personal-info",
     professionalInfo: "professional-info",
     hobbies: "hobbies", contacts: "contacts",
+    professionalContent: {
+      heading: "Professional Info",
+      profileTitle: "Personal Profile",
+      profileBio:
+        "Experienced full-stack Software Engineer specialising in web applications using both C# .NET and React. An approachable, flexible, hard-working and reliable colleague adept at working as a collaborative and proactive team member. Keen to take on new challenges, solve problems and expand upon existing skill sets.",
+      qualificationsTitle: "Qualifications",
+      qualifications: [
+        "MSc Computer Science",
+        "BEng Mechanical Engineering",
+        "Level 1 KUKA Robot Operator",
+      ],
+      groups: [
+        { title: "Languages & Frameworks" },
+        { title: "Databases" },
+        { title: "DevOps & Tools" },
+      ],
+    },
     hobbiesContent: {
       title: "Hobbies",
       paragraphOne:

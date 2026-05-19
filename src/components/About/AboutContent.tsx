@@ -1,22 +1,22 @@
-import { useLang } from "../../context/LanguageContext.tsx";
 import { AboutMe } from "./AboutMe/AboutMe.tsx";
 import { Hobbies } from "./Hobbies/Hobbies.tsx";
+import { Professional } from "./Professional/Professional.tsx";
+
+type SectionKey = "personalInfo" | "professionalInfo" | "hobbies";
 
 type Props = {
-  section: string;
+  section: SectionKey;
 };
 
 export function AboutContent({ section }: Props) {
-    const { t } = useLang();
-  
   switch (section) {
-    case t.aboutme.personalInfo:
+    case "personalInfo":
       return <AboutMe />;
 
-    case t.aboutme.professionalInfo:
-      return <p>This is professional info.</p>;
+    case "professionalInfo":
+      return <Professional />;
 
-    case t.aboutme.hobbies:
+    case "hobbies":
       return <Hobbies />;
 
     default:

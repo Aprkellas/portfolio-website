@@ -3,28 +3,27 @@ import { AboutContent } from "./AboutContent.tsx";
 import { useState } from "react";
 import { useLang } from "../../context/LanguageContext.tsx";
 
+type SectionKey = "personalInfo" | "professionalInfo" | "hobbies";
+
+const SECTION_KEYS: SectionKey[] = ["personalInfo", "professionalInfo", "hobbies"];
+
 export function About() {
 
-  const [section, setSection] = useState("personal-info");
+  const [section, setSection] = useState<SectionKey>("personalInfo");
   const { t } = useLang();
   
-  const items = [
-    t.aboutme.personalInfo, 
-    t.aboutme.professionalInfo, 
-    t.aboutme.hobbies
-  ];    
   return (
     <section className="about">
       <div className="about-wrapper">
         <div className="about_tabs">
           <div className="about_tabs-list">
-            {items.map((tab) => (
+            {SECTION_KEYS.map((key) => (
               <button
-                key={tab}
-                className={`about_tab ${section === tab ? "active" : ""}`}
-                onClick={() => setSection(tab)}
+                key={key}
+                className={`about_tab ${section === key ? "active" : ""}`}
+                onClick={() => setSection(key)}
               >
-                {tab}
+                {t.aboutme[key]}
               </button>
             ))}
           </div>
