@@ -34,7 +34,7 @@ export const TopBar = () => {
 
       <div className="topbar-right">
         <a
-          href="/AlexKellas_CV.pdf"
+          href="/Alex_Kellas_CV_2026.pdf"
           download
           className="cv-btn"
           aria-label="Download CV"
