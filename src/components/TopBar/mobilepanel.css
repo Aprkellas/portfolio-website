@@ -63,11 +63,33 @@
 
 .panel-lang {
   margin-top: 72vh; 
-  padding-top: 24px ;
+  padding-top: 24px;
   border-top: 1px solid #314158;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.panel-lang .cv-btn {
+  font-family: monospace;
+  font-size: 13px;
+  color: #7fffd4;
+  border: 1px solid rgba(127, 255, 212, 0.35);
+  border-radius: 6px;
+  padding: 7px 20px;
+  text-decoration: none;
+  background: rgba(127, 255, 212, 0.07);
+  transition: background 0.2s, border-color 0.2s;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.panel-lang .cv-btn:hover {
+  background: rgba(127, 255, 212, 0.15);
+  border-color: rgba(127, 255, 212, 0.7);
 }
 
 .mobile-panel {

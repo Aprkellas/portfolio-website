@@ -9,7 +9,6 @@ export const TopBar = () => {
     { label: t.tabHello, path: "/" },
     { label: t.tabAbout, path: "/about" },
     { label: t.tabProjects, path: "/projects" },
-    { label: t.tabContact, path: "/contact" },
   ];
   
   return (
@@ -34,6 +33,14 @@ export const TopBar = () => {
       </div>
 
       <div className="topbar-right">
+        <a
+          href="/AlexKellas_CV.pdf"
+          download
+          className="cv-btn"
+          aria-label="Download CV"
+        >
+          {t.downloadCV}
+        </a>
         <button
           className={`lang-toggle ${lang === "es" ? "active" : ""}`}
           onClick={toggle}

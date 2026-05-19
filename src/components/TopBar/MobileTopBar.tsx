@@ -67,16 +67,25 @@ export function MobileTopBar() {
         </nav>
 
         <div className="panel-lang">
-        <button
-          className={`lang-toggle ${lang === "es" ? "active" : ""}`}
-          onClick={toggle}
-          aria-label="Toggle language"
-        >
-          <span className="lang-label">EN</span>
-          <span className="lang-thumb" />
-          <span className="lang-label">ES</span>
-        </button>
-      </div>
+          <a
+            href="/cv.pdf"
+            download
+            className="cv-btn"
+            aria-label="Download CV"
+            onClick={() => setOpen(false)}
+          >
+            {t.downloadCV}
+          </a>
+          <button
+            className={`lang-toggle ${lang === "es" ? "active" : ""}`}
+            onClick={toggle}
+            aria-label="Toggle language"
+          >
+            <span className="lang-label">EN</span>
+            <span className="lang-thumb" />
+            <span className="lang-label">ES</span>
+          </button>
+        </div>
       </aside>
     </>
   );

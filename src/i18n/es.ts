@@ -32,6 +32,8 @@ const es = {
     gameOver: "FIN DEL JUEGO",
   },
 
+  downloadCV: "↓ Descargar CV",
+
   projects: {
     title: "Proyectos",
     subtitle: "// proyectos de mi GitHub — próximamente",

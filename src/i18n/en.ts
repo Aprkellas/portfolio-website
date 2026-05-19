@@ -31,6 +31,8 @@ const en = {
     restart: "restart",
     gameOver: "GAME OVER",
   },
+  downloadCV: "↓ Download CV",
+
   projects: {
     title: "Projects",
     subtitle: "// projects sourced from my GitHub — coming soon",
