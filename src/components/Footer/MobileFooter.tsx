@@ -12,6 +12,7 @@ export function MobileFooter() {
         <a
           href="https://x.com/yourhandle"
           target="_blank"
+          rel="noreferrer"
           className="footer-icon"
         >
           <FaInstagram />
@@ -20,6 +21,7 @@ export function MobileFooter() {
         <a
           href="https://www.linkedin.com/in/alex-kellas-70470b174/"
           target="_blank"
+          rel="noreferrer"
           className="footer-icon"
         >
           <FaLinkedinIn />
@@ -28,6 +30,7 @@ export function MobileFooter() {
         <a
           href="https://github.com/Aprkellas"
           target="_blank"
+          rel="noreferrer"
           className="footer-icon"
         >
           <FaGithub />

@@ -1,5 +1,3 @@
-import Score from "../features/snake/components/UI/Score";
-
 const en = {
   greeting: "Hey, I am",
   name: "Alex Kellas",
