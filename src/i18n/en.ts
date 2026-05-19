@@ -35,6 +35,15 @@ const en = {
     personalInfo: "personal-info",
     professionalInfo: "professional-info",
     hobbies: "hobbies", contacts: "contacts",
+    hobbiesContent: {
+      title: "Hobbies",
+      paragraphOne:
+        "In my free time I am an avid rock climber. I love the physical and mental challenge, as well as the opportunity to travel to some of the most remote places in the world and push myself to my limit.",
+      paragraphTwo:
+        "Alongside that, I have developed a real passion for language learning. Last year I spent three months travelling around Spain in my campervan, using the trip to improve my Spanish and immerse myself in the language. More recently, I have started on Italian - which I am enjoying!",
+      tags: ["Rock climbing", "Language learning", "Travel and adventure"],
+      embedFallback: "If the embed does not load, you can view the post directly on Instagram.",
+    },
   }
 };
 

@@ -1,0 +1,98 @@
+.hobbies {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 24px;
+	height: 100%;
+	max-height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	min-height: 0;
+	box-sizing: border-box;
+	padding-right: 12px;
+	overscroll-behavior: contain;
+}
+
+.hobbies h2 {
+	margin-bottom: 0;
+	font-family: monospace;
+	font-size: 28px;
+	color: #ffffff;
+}
+
+.hobbies__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+	gap: 24px;
+	align-items: start;
+	min-height: 0;
+}
+
+.hobbies__copy p {
+	margin: 0 0 14px;
+	line-height: 1.7;
+	color: #c9d4e2;
+}
+
+.hobbies__list {
+	margin: 18px 0 0;
+	padding-left: 20px;
+	color: #7fffd4;
+}
+
+.hobbies__list li {
+	margin-bottom: 8px;
+}
+
+.hobbies__media {
+	flex-direction: column;
+	gap: 12px;
+    max-width: 100%;
+    max-height: fit-content;
+	min-width: 0;
+	min-height: 0;
+}
+
+.hobbies__media .instagram-media {
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
+	overflow: hidden;
+}
+
+.hobbies__fallback {
+	margin: 0;
+	font-size: 14px;
+	color: #9db0c8;
+}
+
+.hobbies::-webkit-scrollbar {
+	width: 8px;
+}
+
+.hobbies::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 999px;
+}
+
+.hobbies::-webkit-scrollbar-thumb {
+	background: rgba(127, 255, 212, 0.35);
+	border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+	.hobbies__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.hobbies {
+		padding: 16px;
+		gap: 16px;
+	}
+
+	.hobbies h2 {
+		font-size: 24px;
+	}
+}

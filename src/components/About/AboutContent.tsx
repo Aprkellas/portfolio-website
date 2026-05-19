@@ -1,5 +1,6 @@
 import { useLang } from "../../context/LanguageContext.tsx";
-import {AboutMe} from "./AboutMe/AboutMe.tsx";
+import { AboutMe } from "./AboutMe/AboutMe.tsx";
+import { Hobbies } from "./Hobbies/Hobbies.tsx";
 
 type Props = {
   section: string;
@@ -16,7 +17,7 @@ export function AboutContent({ section }: Props) {
       return <p>This is professional info.</p>;
 
     case t.aboutme.hobbies:
-      return <p>These are hobbies.</p>;
+      return <Hobbies />;
 
     default:
       return null;
