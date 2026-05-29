@@ -1,38 +1,60 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ProjectCard, ProjectData } from "./ProjectCard.tsx";
 
-const PLACEHOLDER_PROJECTS: ProjectData[] = [
-  {
-    title: "Project Coming Soon",
-    description: "This project will be added from my GitHub shortly. Stay tuned!",
-    tags: ["TBD"],
-    placeholder: true,
-  },
-  {
-    title: "Project Coming Soon",
-    description: "This project will be added from my GitHub shortly. Stay tuned!",
-    tags: ["TBD"],
-    placeholder: true,
-  },
-  {
-    title: "Project Coming Soon",
-    description: "This project will be added from my GitHub shortly. Stay tuned!",
-    tags: ["TBD"],
-    placeholder: true,
-  },
-  {
-    title: "Project Coming Soon",
-    description: "This project will be added from my GitHub shortly. Stay tuned!",
-    tags: ["TBD"],
-    placeholder: true,
-  },
-  {
-    title: "Project Coming Soon",
-    description: "This project will be added from my GitHub shortly. Stay tuned!",
-    tags: ["TBD"],
-    placeholder: true,
-  },
+const GITHUB_USERNAME = "Aprkellas";
+
+// Add or remove repo names here to control which projects are shown.
+// These should match the exact repository names on your GitHub profile.
+const PINNED_REPOS = [
+  "portfolio-website",
+  "snake",
+  "GearComparison",
+  "fuel-finder",
+  "SolarSystemExplorer",
+  "SleepAnalysis",
 ];
+
+const LOADING_PLACEHOLDERS: ProjectData[] = Array.from({ length: PINNED_REPOS.length }, () => ({
+  title: "Loading...",
+  description: "Fetching project from GitHub...",
+  tags: [],
+  placeholder: true,
+}));
+
+function useGitHubProjects(): ProjectData[] {
+  const [projects, setProjects] = useState<ProjectData[]>(LOADING_PLACEHOLDERS);
+
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all(
+      PINNED_REPOS.map((repo) =>
+        fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo}`, {
+          headers: { Accept: "application/vnd.github+json" },
+        }).then((res) => {
+          if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+          return res.json();
+        })
+      )
+    )
+      .then((repos: any[]) => {
+        if (cancelled) return;
+        const mapped: ProjectData[] = repos.map((r) => ({
+          title: r.name,
+          description: r.description ?? "No description provided.",
+          tags: r.topics?.length ? r.topics : r.language ? [r.language] : [],
+          githubUrl: r.html_url,
+          liveUrl: r.homepage || undefined,
+        }));
+        setProjects(mapped);
+      })
+      .catch(() => {
+        if (!cancelled) setProjects(LOADING_PLACEHOLDERS);
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  return projects;
+}
 
 // How many cards visible at once (responsive)
 function useVisible() {
@@ -52,8 +74,9 @@ export function ProjectsCarousel() {
   const [index, setIndex] = useState(0);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const VISIBLE = useVisible();
+  const projects = useGitHubProjects();
 
-  const maxIndex = Math.max(0, PLACEHOLDER_PROJECTS.length - VISIBLE);
+  const maxIndex = Math.max(0, projects.length - VISIBLE);
 
   // Reset index when VISIBLE changes
   useEffect(() => {
@@ -110,7 +133,7 @@ export function ProjectsCarousel() {
 
       <div className="carousel__track-wrapper" ref={wrapperRef} onScroll={handleScroll}>
         <div className="carousel__track">
-          {PLACEHOLDER_PROJECTS.map((project, i) => (
+          {projects.map((project, i) => (
             <ProjectCard key={i} project={project} />
           ))}
         </div>
